@@ -5,7 +5,9 @@ const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
-app.listen(process.env.PORT || 3001, () => console.log(`Listening on port ${process.env.PORT}`));
+app.listen(process.env.PORT || 3001, () =>
+  console.log(`Listening on port ${process.env.PORT}`)
+);
 
 async function fetchWeatherData(lat, long) {
   const response = await fetch(

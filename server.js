@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const fetch = require("node-fetch");
 const app = express();
@@ -9,7 +10,7 @@ app.listen(3001, () => console.log("Listening on port 3001"));
 
 async function fetchWeatherData(lat, long) {
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&exclude=minutely,daily&appid=6f33289062cfa0d218f0648e984201fb`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&exclude=minutely,daily&appid=${process.env.DB_HOST}`
   );
   const data = await response.json();
   let weather_data = [
